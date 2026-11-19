@@ -1,0 +1,96 @@
+<section class="card">
+  <h1>Registro de cliente</h1>
+  <p class="subtitulo">Completa los datos para registrar un nuevo cliente.</p>
+
+  @if (clienteRegistrado(); as cliente) {
+    <div class="exito" role="status">
+      Cliente <strong>{{ cliente.nombreCompleto }}</strong> registrado correctamente.
+    </div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+    <div class="campo">
+      <label for="nombreCompleto">Nombre completo</label>
+      <input id="nombreCompleto" type="text" formControlName="nombreCompleto" />
+      @if (mostrarError('nombreCompleto')) {
+        <small class="error">
+          @if (form.controls.nombreCompleto.hasError('required')) {
+            El nombre es obligatorio.
+          } @else {
+            Debe tener al menos 3 caracteres.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="dni">DNI</label>
+      <input id="dni" type="text" inputmode="numeric" maxlength="8" formControlName="dni" />
+      @if (mostrarError('dni')) {
+        <small class="error">
+          @if (form.controls.dni.hasError('required')) {
+            El DNI es obligatorio.
+          } @else {
+            El DNI debe tener exactamente 8 dígitos.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" type="email" formControlName="correo" />
+      @if (mostrarError('correo')) {
+        <small class="error">
+          @if (form.controls.correo.hasError('required')) {
+            El correo es obligatorio.
+          } @else {
+            Ingresa un correo con formato válido.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" type="tel" inputmode="numeric" maxlength="9" formControlName="telefono" />
+      @if (mostrarError('telefono')) {
+        <small class="error">
+          @if (form.controls.telefono.hasError('required')) {
+            El teléfono es obligatorio.
+          } @else {
+            Debe tener 9 dígitos y comenzar con 9.
+          }
+        </small>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="edad">Edad</label>
+      <input id="edad" type="number" formControlName="edad" />
+      @if (mostrarError('edad')) {
+        <small class="error">
+          @if (form.controls.edad.hasError('required')) {
+            La edad es obligatoria.
+          } @else if (form.controls.edad.hasError('min')) {
+            El cliente debe ser mayor de edad (mínimo 18 años).
+          } @else {
+            Ingresa una edad válida (máximo 120).
+          }
+        </small>
+      }
+    </div>
+
+    <div class="campo check">
+      <label>
+        <input type="checkbox" formControlName="aceptaTerminos" />
+        Acepto los términos y condiciones
+      </label>
+      @if (mostrarError('aceptaTerminos')) {
+        <small class="error">Debes aceptar los términos para continuar.</small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Registrar cliente</button>
+  </form>
+</section>
