@@ -1,59 +1,52 @@
-# RegistroClientes
+# Registro de Clientes — Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+Práctica Calificada N.° 3 · Herramientas de Desarrollo  
+Aplicación Angular con un formulario reactivo de registro de cliente, pruebas automáticas e integración y entrega continua con GitHub Actions.
 
-## Development server
+## Escenario de negocio
 
-To start a local development server, run:
+**Registro de cliente.** El formulario está disponible en la ruta `/registro`, que es también la pantalla principal de la aplicación.
 
-```bash
-ng serve
-```
+### Campos y validaciones
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Campo | Reglas |
+| --- | --- |
+| Nombre completo | Obligatorio, mínimo 3 caracteres |
+| DNI | Obligatorio, exactamente 8 dígitos |
+| Correo electrónico | Obligatorio, formato de correo válido |
+| Teléfono | Obligatorio, 9 dígitos que inicia con 9 |
+| Edad | Obligatoria, entre 18 y 120 |
+| Términos y condiciones | Debe estar aceptado |
 
-## Code scaffolding
+Si algún dato es inválido, el botón de envío permanece deshabilitado y se muestran los mensajes de error.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Requisitos
 
-```bash
-ng generate component component-name
-```
+- Node.js 20 o superior
+- npm 10 o superior
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Puesta en marcha local
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Abre <http://localhost:4200/registro> en el navegador.
 
-## Running unit tests
+## Comandos útiles
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Comando | Descripción |
+| --- | --- |
+| `npm start` | Inicia el servidor de desarrollo |
+| `npm test` | Ejecuta las pruebas automáticas |
+| `npm run build` | Genera la versión compilada en `dist/registro-clientes` |
 
-```bash
-ng test
+## Estructura principal
+
+```text
+src/app/
+├── app.ts / app.html          Componente raíz con el router-outlet
+├── app.routes.ts              Definición de rutas (/registro)
+└── registro-cliente/          Componente del formulario reactivo
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

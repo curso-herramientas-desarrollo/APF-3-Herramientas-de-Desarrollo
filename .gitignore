@@ -19,6 +19,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+Contexto.md
 
 # Visual Studio Code
 .vscode/*
@@ -28,6 +29,10 @@ yarn-error.log
 !.vscode/extensions.json
 !.vscode/mcp.json
 .history/*
+
+# Archivos locales de apoyo (no se versionan)
+.claude/
+CLAUDE.md
 
 # Miscellaneous
 /.angular/cache
