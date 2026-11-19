@@ -1,4 +1,4 @@
-﻿name: CI - Angular Build and Test
+name: CI - Angular Build and Test
 
 on:
   push:
