@@ -42,6 +42,15 @@ Abre <http://localhost:4200/registro> en el navegador.
 | `npm test` | Ejecuta las pruebas automáticas |
 | `npm run build` | Genera la versión compilada en `dist/registro-clientes` |
 
+## Integración y entrega continua
+
+El workflow `.github/workflows/ci.yml` ejecuta la instalación, las pruebas y el build:
+
+- Los Pull Requests hacia `main` ejecutan CI y no despliegan.
+- Un push directo o merge a `main` primero completa CI y luego despliega con GitHub Pages.
+- El despliegue publica únicamente `dist/registro-clientes/browser`, que contiene la aplicación compilada.
+- El archivo `404.html` se genera a partir de `index.html` para permitir la recarga directa de `/registro`.
+
 ## Estructura principal
 
 ```text
