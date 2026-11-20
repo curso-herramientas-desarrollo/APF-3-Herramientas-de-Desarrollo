@@ -85,3 +85,16 @@ button:disabled {
   background: #c4b5fd;
   cursor: not-allowed;
 }
+
+/* Responsive */
+.campos-obligatorios {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.asterisco {
+  color: red;
+  font-weight: bold;
+}

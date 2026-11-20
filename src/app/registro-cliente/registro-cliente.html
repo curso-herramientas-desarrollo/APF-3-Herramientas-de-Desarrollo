@@ -1,6 +1,7 @@
 <section class="card">
   <h1>Registro de cliente</h1>
-  <p class="subtitulo">Completa los datos para registrar un nuevo cliente.</p>
+  <p class="subtitulo">Completa los datos para registrar un nuevo cliente.</p> 
+  <p class="campos-obligatorios"> (*) Los campos marcados con asterisco son obligatorios.</p>
 
   @if (clienteRegistrado(); as cliente) {
     <div class="exito" role="status">
@@ -10,7 +11,7 @@
 
   <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
     <div class="campo">
-      <label for="nombreCompleto">Nombre completo</label>
+      <label for="nombreCompleto">Nombre completo <span class="asterisco">*</span></label>
       <input id="nombreCompleto" type="text" formControlName="nombreCompleto" />
       @if (mostrarError('nombreCompleto')) {
         <small class="error">
@@ -24,7 +25,7 @@
     </div>
 
     <div class="campo">
-      <label for="dni">DNI</label>
+      <label for="dni">DNI <span class="asterisco">*</span></label>
       <input id="dni" type="text" inputmode="numeric" maxlength="8" formControlName="dni" />
       @if (mostrarError('dni')) {
         <small class="error">
@@ -38,7 +39,7 @@
     </div>
 
     <div class="campo">
-      <label for="correo">Correo electrónico</label>
+      <label for="correo">Correo electrónico <span class="asterisco">*</span></label>
       <input id="correo" type="email" formControlName="correo" />
       @if (mostrarError('correo')) {
         <small class="error">
@@ -52,7 +53,7 @@
     </div>
 
     <div class="campo">
-      <label for="telefono">Teléfono</label>
+      <label for="telefono">Teléfono <span class="asterisco">*</span></label>
       <input id="telefono" type="tel" inputmode="numeric" maxlength="9" formControlName="telefono" />
       @if (mostrarError('telefono')) {
         <small class="error">
@@ -66,7 +67,7 @@
     </div>
 
     <div class="campo">
-      <label for="edad">Edad</label>
+      <label for="edad">Edad <span class="asterisco">*</span></label>
       <input id="edad" type="number" formControlName="edad" />
       @if (mostrarError('edad')) {
         <small class="error">
